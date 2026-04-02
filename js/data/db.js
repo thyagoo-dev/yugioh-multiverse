@@ -34,7 +34,9 @@ export const charactersData = [
     { id: 1025, name: "Solomon Muto", series: "dm", charKey: "solomon-muto", hasSync: false, mainCard: "Exodia the Forbidden One", desc: "O avô de Yugi, dono da loja de cartas de Domino City e experiente duelista." },
     { id: 1026, name: "Rebecca Hawkins", series: "dm", charKey: "rebecca-hawkins", hasSync: false, mainCard: "Shadow Ghoul", desc: "Uma jovem prodígio americana e estrategista brilhante." },
     { id: 1027, name: "Serenity Wheeler", series: "dm", charKey: "serenity-wheeler", hasSync: false, mainCard: "St. Joan", desc: "A doce e amorosa irmã mais nova de Joey Wheeler." },
-    { id: 1001, name: "Mia", series: "dm", charKey: "mia", hasSync: false, mainCard: "Cipher Soldier", desc: "Uma duelista misteriosa da era Duel Monsters, cujas táticas de duelo são tão complexas e lógicas quanto o seu amor por enigmas e códigos." },
+    { id: 1999, name: "Mia", series: "dm", charKey: "mia", hasSync: false, mainCard: "Cipher Soldier", desc: "Uma duelista misteriosa da era Duel Monsters, cujas táticas de duelo são tão complexas e lógicas quanto o seu amor por enigmas e códigos." },
+    // Lista 08
+    { id: 1002, name: "Nick", series: "dm", charKey: "nick", hasSync: false, mainCard: "Little Winguard", desc: "Um duelista local sempre de bom humor, pronto para testar as suas habilidades e as novas cartas que conseguiu na loja da esquina." },
     // Yu-Gi-Oh! GX
     // Lista 01
     { id: 2001, name: "Jaden Yuki", series: "gx", charKey: "jaden-yuki", hasSync: true, mainCard: "Elemental HERO Neos", desc: "O duelista mais empolgado e talentoso do dormitório Slifer Red." },
