@@ -24,7 +24,7 @@ body {
     color: var(--text-main);
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 100dvh; /* CORREÇÃO APLICADA AQUI: 100dvh no lugar de 100vh */
     overflow: hidden; /* Evita scroll no body, temos scroll no grid */
     
     /* Simulação profissional de fundo hexagonal de alta qualidade */
