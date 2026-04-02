@@ -1,3 +1,4 @@
+// js/utils/main.js
 import { renderNav } from './components/Nav.js';
 import { renderGrid } from './components/Grid.js';
 import { initSearch } from './components/Search.js';

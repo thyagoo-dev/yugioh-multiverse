@@ -1,3 +1,4 @@
+// js/components/Search.js
 import { setSearchTerm } from '../state/store.js';
 import { updateAppView } from '../main.js';
 

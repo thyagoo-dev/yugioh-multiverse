@@ -1,3 +1,4 @@
+// js/data/db.js
 export const charactersData = [
     // Yu-Gi-Oh! DM
     // Lista 01

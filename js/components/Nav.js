@@ -1,3 +1,4 @@
+// js/components/Nav.js
 import { seriesList } from '../data/db.js';
 import { getState, setSeries } from '../state/store.js';
 import { getSeriesLogo } from '../utils/assets.js';

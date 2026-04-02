@@ -1,3 +1,4 @@
+// js/components/Modal.js
 import { getState, setModalIndex, getFilteredCharacters } from '../state/store.js';
 import { getCharacterPortrait } from '../utils/assets.js';
 import { deselectAllCharactersUI } from './Grid.js';

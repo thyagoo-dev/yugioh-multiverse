@@ -1,3 +1,4 @@
+// js/components/Grid.js
 import { getFilteredCharacters, setModalIndex } from '../state/store.js';
 import { getCharacterPortrait } from '../utils/assets.js';
 import { openModal } from './Modal.js';

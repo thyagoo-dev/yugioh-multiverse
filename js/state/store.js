@@ -1,3 +1,4 @@
+// js/state/store.js
 import { charactersData, seriesList } from '../data/db.js';
 
 // Estado privado
