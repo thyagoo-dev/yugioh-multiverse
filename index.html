@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yu-Gi-Oh! Character Dex</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="top-header">
+        <h1 id="page-title">Yu-Gi-Oh! DM - Personagens</h1>
+    </header>
+    
+    <div class="controls">
+        <input type="text" id="search-input" placeholder="Buscar personagem...">
+    </div>
+
+    <main class="character-grid" id="character-grid">
+        </main>
+
+    <nav class="bottom-nav" id="series-nav">
+        </nav>
+
+    <div id="character-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button id="close-modal" class="btn-close">X</button>
+            <div class="modal-header">
+                <h2>Series/Characters</h2>
+            </div>
+            
+            <div class="modal-body">
+                <h3 id="modal-char-name" class="char-name">Nome</h3>
+                <p id="modal-char-desc" class="char-desc">Descrição do personagem.</p>
+                <div class="char-stats">
+                    <p><strong>Main Card:</strong> <span id="modal-char-card">Carta</span></p>
+                </div>
+            </div>
+
+            <div class="modal-image-wrapper">
+                <button id="prev-char" class="nav-arrow left-arrow">❮</button>
+                <img id="modal-char-img" src="" alt="Personagem">
+                <button id="next-char" class="nav-arrow right-arrow">❯</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>

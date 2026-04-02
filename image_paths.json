@@ -1,0 +1,185 @@
+{
+  "logotipos": {
+    "5ds": "./img/logotipos/5ds.png",
+    "arc-v": "./img/logotipos/arcv.png",
+    "dm": "./img/logotipos/dm.png",
+    "gorush": "./img/logotipos/gorush.png",
+    "gx": "./img/logotipos/gx.png",
+    "sevens": "./img/logotipos/sevens.png",
+    "dsod": "./img/logotipos/tdod.png",
+    "vrains": "./img/logotipos/vrains.png",
+    "zexal": "./img/logotipos/zexal.png"
+  },
+  "frames": {
+    "normal": "./img/frames/frame-normal.png",
+    "selected": "./img/frames/frame-selected.png"
+  },
+  "personagens": {
+    "dm": {
+      "yami_yugi": "./img/personagens/dm/yami-yugi.jpg",
+      "seto_kaiba": "./img/personagens/dm/seto-kaiba.jpg",
+      "joey_wheeler": "./img/personagens/dm/joey-wheeler.jpg",
+      "may_valentine": "./img/personagens/dm/may-valentine.jpg",
+
+      "tea_gardner": "./img/personagens/dm/tea-gardner.jpg",
+      "yugi_muto": "./img/personagens/dm/yugi-muto.jpg",
+      "weevil_underwood": "./img/personagens/dm/weevil-underwood.jpg",
+      "rex_raptor": "./img/personagens/dm/rex-raptor.jpg",
+
+      "mako_tsunami": "./img/personagens/dm/mako-tsunami.jpg",
+      "yami_marik": "./img/personagens/dm/yami-marik.jpg",
+      "marik_ishtar": "./img/personagens/dm/marik-ishtar.jpg",
+      "yami_bakura": "./img/personagens/dm/yami-bakura.jpg",
+
+      "bandit_keith": "./img/personagens/dm/bandit-keith.jpg",
+      "ishizu_ishtar": "./img/personagens/dm/ishizu-ishtar.jpg",
+      "odion": "./img/personagens/dm/odion.jpg",
+      "maximillion_pegasus": "./img/personagens/dm/maximillion-pegasus.jpg",
+
+      "mokuba_kaiba": "./img/personagens/dm/mokuba-kaiba.jpg",
+      "paradox_brothers": "./img/personagens/dm/paradox-brothers.jpg",
+      "arkana": "./img/personagens/dm/arkana.jpg",
+      "bonz": "./img/personagens/dm/bonz.jpg",
+
+      "espa_roba": "./img/personagens/dm/espa-roba.jpg",
+      "tristan_taylor": "./img/personagens/dm/tristan-taylor.jpg",
+      "lumis_and_umbra": "./img/personagens/dm/lumis-and-umbra.jpg",
+      "duke_devlin": "./img/personagens/dm/duke-devlin.jpg",
+
+      "solomon_muto": "./img/personagens/dm/solomon-muto.jpg",
+      "rebecca_hawkins": "./img/personagens/dm/rebecca-hawkins.jpg",
+      "serenity_wheeler": "./img/personagens/dm/serenity-wheeler.jpg"
+  },
+    "gx": {
+      "jaden_yuki": "./img/personagens/gx/jaden-yuki.jpg",
+      "zane_truesdale": "./img/personagens/gx/zane-truesdale.jpg",
+      "aster_phoenix": "./img/personagens/gx/aster-phoenix.jpg",
+      "jesse_anderson": "./img/personagens/gx/jesse-anderson.jpg",
+
+      "chazz_princeton": "./img/personagens/gx/chazz-princeton.jpg",
+      "alexis_rhodes": "./img/personagens/gx/alexis-rhodes.jpg",
+      "dr_vellian_crowler": "./img/personagens/gx/dr-vellian-crowler.jpg",
+      "yubel": "./img/personagens/gx/yubel.jpg",
+
+      "bastion_misawa": "./img/personagens/gx/bastion-misawa.jpg",
+      "syrus_truesdale": "./img/personagens/gx/syrus-truesdale.jpg",
+      "tyranno_hassleberry": "./img/personagens/gx/tyranno-hassleberry.jpg",
+      "sartorius_kumar": "./img/personagens/gx/sartorius-kumar.jpg",
+
+      "jaden_yubel": "./img/personagens/gx/jaden-yubel.jpg",
+      "blair_flannigan": "./img/personagens/gx/blair-flannigan.jpg",
+      "jim_crocodile_cook": "./img/personagens/gx/jim-crocodile-cook.jpg",
+      "axel_brodie": "./img/personagens/gx/axel-brodie.jpg",
+
+      "supreme_king_jaden": "./img/personagens/gx/supreme-king-jaden.jpg"
+  },
+    "5ds": {
+      "yusei_fudo": "./img/personagens/5ds/yusei-fudo.jpg",
+      "jack_atlas": "./img/personagens/5ds/jack-atlas.jpg",
+      "crow_hogan": "./img/personagens/5ds/crow-hogan.jpg",
+      "akiza_izinski": "./img/personagens/5ds/akiza-izinski.jpg",
+
+      "leo": "./img/personagens/5ds/leo.jpg",
+      "luna": "./img/personagens/5ds/luna.jpg",
+      "antinomy": "./img/personagens/5ds/antinomy.jpg",
+      "officer_tetsu_trudge": "./img/personagens/5ds/officer-tetsu-trudge.jpg",
+
+      "dark_signer_kalin_kessler": "./img/personagens/5ds/dark-signer-kalin-kessler.jpg",
+      "dark_signer_carly_carmine": "./img/personagens/5ds/dark-signer-carly-carmine.jpg",
+      "dark_signer_rex_goodwin": "./img/personagens/5ds/dark-signer-rex-goodwin.jpg",
+      "kalin_kessler": "./img/personagens/5ds/kalin-kessler.jpg",
+
+      "carly_carmine": "./img/personagens/5ds/carly-carmine.jpg",
+      "sherry_leblanc": "./img/personagens/5ds/sherry-leblanc.jpg",
+      "primo": "./img/personagens/5ds/primo.jpg",
+      "aporia": "./img/personagens/5ds/aporia.jpg",
+
+      "paradox": "./img/personagens/5ds/paradox.jpg",
+      "z_one": "./img/personagens/5ds/z-one.jpg"
+  },
+  "zexal": {
+      "yuma_and_astral": "./img/personagens/zexal/yuma-astral.jpg",
+      "reginald_shark_kastle": "./img/personagens/zexal/reginald-shark-kastle.jpg",
+      "rio_kastle": "./img/personagens/zexal/rio-kastle.jpg",
+      "bronk_stone": "./img/personagens/zexal/bronk-stone.jpg",
+
+      "tori_meadows": "./img/personagens/zexal/tori-meadows.jpg",
+      "kite_tenjo": "./img/personagens/zexal/kite-tenjo.jpg",
+      "trey": "./img/personagens/zexal/trey.jpg",
+      "quattro": "./img/personagens/zexal/quattro.jpg",
+
+      "quinton": "./img/personagens/zexal/quinton.jpg",
+      "anna_kaboom": "./img/personagens/zexal/anna-kaboom.jpg",
+      "girag": "./img/personagens/zexal/girag.jpg",
+      "alito": "./img/personagens/zexal/alito.jpg",
+
+      "mizar": "./img/personagens/zexal/mizar.jpg",
+      "dumon": "./img/personagens/zexal/dumon.jpg",
+      "vector": "./img/personagens/zexal/vector.jpg"
+  },
+  "arc-v": {
+      "yuya_sakaki": "./img/personagens/arc-v/yuya-sakaki.jpg",
+      "yuri": "./img/personagens/arc-v/yuri.jpg",
+      "yuto": "./img/personagens/arc-v/yuto.jpg",
+      "yugo": "./img/personagens/arc-v/yugo.jpg",
+
+      "zuzu_boyle": "./img/personagens/arc-v/zuzu-boyle.jpg",
+      "celina": "./img/personagens/arc-v/celina.jpg",
+      "lulu_obsidian": "./img/personagens/arc-v/lulu-obsidian.jpg",
+      "rin": "./img/personagens/arc-v/rin.jpg",
+
+      "gong_strong": "./img/personagens/arc-v/gong-strong.jpg",
+      "sylvio_sawatari": "./img/personagens/arc-v/sylvio-sawatari.jpg",
+      "declan_akaba": "./img/personagens/arc-v/declan-akaba.jpg",
+      "sora_perse": "./img/personagens/arc-v/sora-perse.jpg",
+
+      "shay_obsidian": "./img/personagens/arc-v/shay-obsidian.jpg",
+      "dennis_mcfield": "./img/personagens/arc-v/dennis-mcfield.jpg"
+  },
+    "vrains": {
+      "playmaker_and_ai": "./img/personagens/vrains/playmaker-and-ai.jpg",
+      "soulburner": "./img/personagens/vrains/soulburner.jpg",
+      "the_gore": "./img/personagens/vrains/the-gore.jpg",
+      "blue_angel": "./img/personagens/vrains/blue-angel.jpg",
+
+      "varis": "./img/personagens/vrains/varis.jpg",
+      "spectre": "./img/personagens/vrains/spectre.jpg",
+      "ghost_gal": "./img/personagens/vrains/ghost-gal.jpg",
+      "akira_zaizen": "./img/personagens/vrains/akira-zaizen.jpg"
+  },
+    "sevens": {
+      "yuga_ohdo": "./img/personagens/sevens/yuga-ohdo.jpg",
+      "lucidien_kallister": "./img/personagens/sevens/lucidien-kallister.jpg",
+      "gavin_sogetsu": "./img/personagens/sevens/gavin-sogetsu.jpg",
+      "romin_kassidy": "./img/personagens/sevens/romin-kassidy.jpg",
+
+      "mimi_imimi": "./img/personagens/sevens/mimi-imimi.jpg",
+      "roa_kassidy": "./img/personagens/sevens/roa-kassidy.jpg",
+      "nail_saionji": "./img/personagens/sevens/nail-saionji.jpg",
+      "asana_mutsuba": "./img/personagens/sevens/asana-mutsuba.jpg",
+
+      "yuo_goha": "./img/personagens/sevens/yuo-goha.jpg"
+  },
+    "gorush": {
+      "yudias_velgear": "./img/personagens/go-rush/yudias-velgear.jpg",
+      "yuhi_ohdo": "./img/personagens/go-rush/yuhi-ohdo.jpg",
+      "yuamu_ohdo": "./img/personagens/go-rush/yuamu-ohdo.jpg",
+      "zuwijo_zwil_velgear": "./img/personagens/go-rush/zuwijo-zwil-velgear.jpg",
+
+      "maddox_sogetsu": "./img/personagens/go-rush/maddox-sogetsu.jpg"
+  },
+    "dsod": {
+      "seto_kaiba": "./img/personagens/dsod/seto-kaiba.jpg",
+      "mokuba_kaiba": "./img/personagens/dsod/mokuba-kaiba.jpg",
+      "yugi_muto": "./img/personagens/dsod/yugi-muto.jpg",
+      "joey_wheeler": "./img/personagens/dsod/joey-wheeler.jpg",
+
+      "tea_gardner": "./img/personagens/dsod/tea-gardner.jpg",
+      "aigami": "./img/personagens/dsod/aigami.jpg",
+      "sera": "./img/personagens/dsod/sera.jpg",
+      "scud": "./img/personagens/dsod/scud.jpg",
+
+      "bakura": "./img/personagens/dsod/bakura.jpg"
+  }
+  }
+}
