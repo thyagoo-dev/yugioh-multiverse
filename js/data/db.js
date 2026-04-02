@@ -39,6 +39,7 @@ export const charactersData = [
     { id: 1998, name: "Nick", series: "dm", charKey: "nick", hasSync: false, mainCard: "Little Winguard", desc: "Um duelista local sempre de bom humor, pronto para testar as suas habilidades e as novas cartas que conseguiu na loja da esquina." },
     { id: 1003, name: "Mickey", series: "dm", charKey: "mickey", hasSync: false, mainCard: "Kuriboh", desc: "Um jovem e entusiasmado duelista que adora colecionar cartas, sempre buscando aprender novas táticas assistindo aos grandes torneios da cidade." },
     { id: 1004, name: "Bella", series: "dm", charKey: "bella", hasSync: false, mainCard: "Fire Princess", desc: "Uma duelista estudiosa e atenta aos detalhes. Ela adora estratégias bem elaboradas e está sempre pronta para surpreender seus oponentes nos intervalos das aulas." },
+    { id: 1005, name: "Emma", series: "dm", charKey: "emma", hasSync: false, mainCard: "Watapon", desc: "Uma jovem duelista com um coração gentil que adora colecionar monstros fofinhos. Ela acredita que os duelos são a melhor forma de fazer novas amizades." },
     // Yu-Gi-Oh! GX
     // Lista 01
     { id: 2001, name: "Jaden Yuki", series: "gx", charKey: "jaden-yuki", hasSync: true, mainCard: "Elemental HERO Neos", desc: "O duelista mais empolgado e talentoso do dormitório Slifer Red." },
