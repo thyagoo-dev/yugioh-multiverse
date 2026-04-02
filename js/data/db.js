@@ -36,7 +36,8 @@ export const charactersData = [
     { id: 1027, name: "Serenity Wheeler", series: "dm", charKey: "serenity-wheeler", hasSync: false, mainCard: "St. Joan", desc: "A doce e amorosa irmã mais nova de Joey Wheeler." },
     { id: 1999, name: "Mia", series: "dm", charKey: "mia", hasSync: false, mainCard: "Cipher Soldier", desc: "Uma duelista misteriosa da era Duel Monsters, cujas táticas de duelo são tão complexas e lógicas quanto o seu amor por enigmas e códigos." },
     // Lista 08
-    { id: 1002, name: "Nick", series: "dm", charKey: "nick", hasSync: false, mainCard: "Little Winguard", desc: "Um duelista local sempre de bom humor, pronto para testar as suas habilidades e as novas cartas que conseguiu na loja da esquina." },
+    { id: 1998, name: "Nick", series: "dm", charKey: "nick", hasSync: false, mainCard: "Little Winguard", desc: "Um duelista local sempre de bom humor, pronto para testar as suas habilidades e as novas cartas que conseguiu na loja da esquina." },
+    { id: 1003, name: "Mickey", series: "dm", charKey: "mickey", hasSync: false, mainCard: "Kuriboh", desc: "Um jovem e entusiasmado duelista que adora colecionar cartas, sempre buscando aprender novas táticas assistindo aos grandes torneios da cidade." },
     // Yu-Gi-Oh! GX
     // Lista 01
     { id: 2001, name: "Jaden Yuki", series: "gx", charKey: "jaden-yuki", hasSync: true, mainCard: "Elemental HERO Neos", desc: "O duelista mais empolgado e talentoso do dormitório Slifer Red." },
