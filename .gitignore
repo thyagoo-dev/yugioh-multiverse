@@ -1,0 +1,28 @@
+# .gitignore
+
+# Arquivos do sistema operacional (O Windows e o Mac criam arquivos ocultos inúteis)
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Pastas de editores de código
+.vscode/
+.idea/
+
+# Se um dia você usar NPM e bibliotecas Node, a pasta modules gigante nunca vai pro Git
+node_modules/
+
+# Arquivos de variáveis de ambiente reais (se você fosse fazer um backend em Node.js/Java)
+.env
+.env.local
+.env.development
+.env.production
+
+# Arquivos de log de erros
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# (Opcional) Caso você tenha algum rascunho de texto ou anotações locais que não quer subir
+rascunhos/
+anotacoes.txt

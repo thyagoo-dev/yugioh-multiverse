@@ -5,6 +5,7 @@
     --bg-dark: #020a1c;
     --bg-light-blue: #0b1f47;
     --accent-cyan: #00ffff;
+    --accent-blue: #0088ff;
     --border-metal: #a0a5b0;
     --text-main: #ffffff;
     --text-muted: #b0b8c8;
@@ -24,10 +25,9 @@ body {
     color: var(--text-main);
     display: flex;
     flex-direction: column;
-    height: 100dvh; /* CORREÇÃO APLICADA AQUI: 100dvh no lugar de 100vh */
-    overflow: hidden; /* Evita scroll no body, temos scroll no grid */
+    height: 100dvh; 
+    overflow: hidden; 
     
-    /* Simulação profissional de fundo hexagonal de alta qualidade */
     background-image: 
         linear-gradient(rgba(2, 10, 28, 0.95), rgba(2, 10, 28, 0.95)),
         repeating-linear-gradient(45deg, #0b1f47 0, #0b1f47 1px, transparent 0, transparent 50%),
@@ -73,20 +73,17 @@ body {
 /* ============================================================
    Character Grid & Icon Frames
    ============================================================ */
-
 .character-grid {
     flex: 1;
     overflow-y: auto;
-    /* Adicionado padding-bottom maior (30px) para a última linha não bugar no fundo */
     padding: 15px 8px 30px 8px; 
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
-    gap: 8px; /* Gap ligeiramente ajustado para manter respiro seguro */
+    gap: 8px; 
     align-content: start;
-    align-items: start; /* Impede que os itens estiquem e percam a proporção */
+    align-items: start; 
 }
 
-/* Wrapper para o ícone do personagem */
 .char-icon-wrapper {
     position: relative; 
     cursor: pointer;
@@ -94,25 +91,21 @@ body {
     height: auto;
     aspect-ratio: 3/4; 
     transition: transform 0.2s ease;
-    z-index: 1; /* Garante uma camada base para não sumir */
+    z-index: 1; 
 }
 
-/* Quando hover ou selecionado, joga o card para frente para não bugar com os outros */
 .char-icon-wrapper:hover,
 .char-icon-wrapper.selected {
     transform: scale(1.05);
     z-index: 10;
 }
 
-/* Container para alinhar as camadas internas */
 .frame-container {
     position: relative;
     width: 100%;
     height: 100%;
-    overflow: hidden;
 }
 
-/* Camadas Internas: Molduras e Retrato */
 .frame-image,
 .frame-image-selected,
 .char-portrait {
@@ -123,33 +116,21 @@ body {
     left: 0;
 }
 
-/* Retrato do Personagem (Com recorte Ajustado e Polígono apertado) */
 .char-portrait {
     z-index: 1;
     object-fit: cover; 
     object-position: top; 
-    
     clip-path: polygon(
-        16% 3%,   /* Corte superior esquerdo - topo */
-        97% 3%,   /* Topo direito */
-        97% 45%,  /* Início do dente direito */
-        88% 50%,  /* Fundo do dente direito */
-        88% 70%,  /* Base do dente direito */
-        97% 75%,  /* Fim do dente direito */
-        97% 84%,  /* Corte inferior direito - lado */
-        84% 97%,  /* Corte inferior direito - base */
-        3% 97%,   /* Fundo esquerdo */
-        4% 16%    /* Corte superior esquerdo - lado */
+        16% 3%, 97% 3%, 97% 45%, 88% 50%, 88% 70%, 
+        97% 75%, 97% 84%, 84% 97%, 3% 97%, 4% 16%
     );
 }
 
-/* Molduras (Camada MAIS ALTA, por cima do retrato) */
 .frame-image, .frame-image-selected {
     z-index: 2; 
     transition: var(--transition);
 }
 
-/* Lógica de Seleção de Moldura */
 .frame-image-selected {
     display: none;
 }
@@ -164,7 +145,6 @@ body {
     display: block;
 }
 
-/* Ícone de Sincronia (Selo pequeno no canto) */
 .sync-icon {
     position: absolute;
     bottom: 5px;
@@ -185,170 +165,244 @@ body {
     box-shadow: 0 0 5px rgba(255,255,255,0.5);
 }
 
-/* ============================================================
-   Bottom Nav & Modal
-   ============================================================ */
+.alt-style-icon {
+    position: absolute;
+    bottom: -5px; 
+    left: -5px;   
+    width: 40px;  
+    height: 40px; 
+    z-index: 10;
+    pointer-events: none; 
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8)); 
+}
 
-.bottom-nav {
-    height: 70px;
-    background: var(--nav-bg);
+/* ============================================================
+   Main Navigation (App Style)
+   ============================================================ */
+.main-bottom-nav {
+    height: 65px;
+    background: #040d21;
     border-top: 2px solid blue;
     display: flex;
+    justify-content: space-around;
     align-items: center;
-    overflow-x: auto;
     padding: 0 10px;
-    gap: 15px;
+    z-index: 50;
+    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.5);
+    margin-top: auto; 
+    width: 100%;
 }
 
-.series-btn {
+.nav-tab-btn {
     background: transparent;
     border: none;
+    color: var(--text-muted);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    min-width: 80px;
-    height: 40px;
-    opacity: 0.5;
-    transition: opacity 0.3s, transform 0.2s;
-    color: white; 
-    font-weight: bold;
+    transition: var(--transition);
+    width: 60px;
 }
 
-.series-btn.active, .series-btn:hover {
-    opacity: 1;
+.nav-icon {
+    margin-bottom: 3px;
+    transition: transform 0.2s;
+}
+
+.nav-label {
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nav-tab-btn.active {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+.nav-tab-btn.active .nav-icon {
+    transform: translateY(-3px) scale(1.1);
+}
+
+/* ============================================================
+   FAB & SERIES MENU (VISUAL IDÊNTICO AO DUEL LINKS)
+   ============================================================ */
+#fab-container {
+    position: fixed;
+    bottom: 85px; 
+    right: 20px;
+    z-index: 60;
+}
+
+.fab-series-btn {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #000;
+    border: 3px solid #ccc; 
+    box-shadow: 0 0 10px rgba(0,0,0,0.8), inset 0 0 5px rgba(255,255,255,0.2);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 62;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.fab-series-btn:hover {
     transform: scale(1.1);
 }
 
-.series-btn.active {
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255,255,255,0.3);
+.fab-series-btn img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 2px black);
 }
 
-/* Modal */
-.modal {
+.series-menu-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(3px);
+    z-index: 60;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.series-menu-overlay.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.series-menu-list {
+    position: absolute;
+    bottom: 75px; 
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+    z-index: 61;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    max-height: 65vh; 
+    overflow-y: auto; 
+    padding-right: 5px; 
+}
+
+.series-menu-list.open {
+    pointer-events: auto;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.series-menu-list::-webkit-scrollbar { width: 4px; }
+.series-menu-list::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+
+/* O Botão Principal */
+.dl-series-wrapper {
+    width: 220px; 
+    height: 75px; /* Tamanho exato para acomodar tudo */
+    background: #444; /* Borda inativa */
+    padding: 2px; /* Espessura da borda */
+    /* Chanfro exato no topo-esquerdo e base-direita */
+    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+    cursor: pointer;
+    transition: transform 0.2s, filter 0.2s;
+    flex-shrink: 0; 
+}
+
+.dl-series-wrapper:hover {
+    transform: translateX(-5px);
+}
+
+.dl-series-wrapper.active {
+    background: var(--accent-cyan); /* Borda cyan quando ativo */
+    filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.6));
+}
+
+.dl-series-inner {
     width: 100%;
     height: 100%;
-    z-index: 100;
+    background: linear-gradient(90deg, #020a1c 0%, #0b1f47 100%);
+    /* O recorte interno acompanha o recorte externo */
+    clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Área do Logo (Esquerda) */
+.dl-logo-container {
+    flex: 1;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 5px 10px;
 }
 
-.modal.hidden {
-    display: none;
+.dl-series-logo {
+    max-width: 100%;
+    max-height: 85%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 2px black);
 }
 
-.modal-overlay {
-    position: absolute;
+/* Área do Personagem (Direita) - Cria o corte com a linha separadora */
+.dl-char-container {
+    width: 80px; /* Largura fixa para o lado direito */
+    height: 100%;
+    border-left: 2px solid #444; /* Linha de separação inativa */
+    position: relative;
+    background: #000;
+}
+
+.dl-series-wrapper.active .dl-char-container {
+    border-left-color: var(--accent-cyan); /* Linha de separação ativa */
+}
+
+/* A Imagem do Personagem */
+.dl-protagonist-img {
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85);
+    object-fit: cover; /* Faz o JPEG preencher o espaço inteiro sem distorcer */
+    object-position: top center; /* Foca no rosto */
+    filter: brightness(0.8);
+    transition: filter 0.3s;
 }
 
-.modal-content {
-    position: relative;
-    width: 90%;
-    max-width: 400px;
-    background: var(--bg-dark);
-    border: 1px solid #444;
-    border-top: 2px solid var(--accent-cyan);
-    border-bottom: 2px solid var(--accent-cyan);
-    border-radius: 8px;
-    z-index: 101;
-    display: flex;
-    flex-direction: column;
-    animation: fadeIn 0.3s ease;
+.dl-series-wrapper.active .dl-protagonist-img {
+    filter: brightness(1.1); /* Destaca o personagem da série ativa */
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.btn-close {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    background: #ccc;
-    color: black;
-    border: none;
-    border-radius: 50%;
-    width: 25px;
-    height: 25px;
-    font-weight: bold;
-    cursor: pointer;
-    z-index: 102;
-}
-
-.modal-header {
-    background: #111;
-    padding: 15px;
-    text-align: center;
-    border-bottom: 2px solid var(--accent-cyan);
-}
-
-.modal-header h2 {
-    font-size: 1.2rem;
-    color: #444; 
-    letter-spacing: 1px;
-}
-
-.modal-body {
-    padding: 20px;
-    text-align: center;
-}
-
-.char-name {
-    color: white;
-    font-size: 1.5rem;
-    margin-bottom: 15px;
-    text-shadow: 0 0 5px var(--accent-cyan);
-}
-
-.char-desc {
-    font-size: 0.85rem;
-    line-height: 1.4;
-    color: var(--text-muted);
-    margin-bottom: 15px;
-    text-align: left;
-}
-
-.modal-image-wrapper {
-    position: relative;
-    height: 250px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-#modal-char-img {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: contain;
-}
-
-.nav-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: transparent;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    text-shadow: 0 0 10px rgba(0,0,0,0.8);
-}
-
+/* ============================================================
+   Modal
+   ============================================================ */
+.modal { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 100; display: flex; align-items: center; justify-content: center; }
+.modal.hidden { display: none; }
+.modal-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); }
+.modal-content { position: relative; width: 90%; max-width: 400px; background: var(--bg-dark); border: 1px solid #444; border-top: 2px solid var(--accent-cyan); border-bottom: 2px solid var(--accent-cyan); border-radius: 8px; z-index: 101; display: flex; flex-direction: column; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.btn-close { position: absolute; top: 10px; right: 15px; background: #ccc; color: black; border: none; border-radius: 50%; width: 25px; height: 25px; font-weight: bold; cursor: pointer; z-index: 102; }
+.modal-header { background: #111; padding: 15px; text-align: center; border-bottom: 2px solid var(--accent-cyan); }
+.modal-header h2 { font-size: 1.2rem; color: #444; letter-spacing: 1px; }
+.modal-body { padding: 20px; text-align: center; }
+.char-name { color: white; font-size: 1.5rem; margin-bottom: 15px; text-shadow: 0 0 5px var(--accent-cyan); }
+.char-desc { font-size: 0.85rem; line-height: 1.4; color: var(--text-muted); margin-bottom: 15px; text-align: left; }
+.modal-image-wrapper { position: relative; height: 250px; display: flex; align-items: flex-end; justify-content: center; }
+#modal-char-img { max-height: 100%; max-width: 100%; object-fit: contain; }
+.nav-arrow { position: absolute; top: 50%; transform: translateY(-50%); background: transparent; border: none; color: white; font-size: 2rem; cursor: pointer; text-shadow: 0 0 10px rgba(0,0,0,0.8); }
 .left-arrow { left: 0; }
 .right-arrow { right: 0; }
 
 /* Media Queries para Tablets/Desktops */
-@media (min-width: 600px) {
-    .character-grid { grid-template-columns: repeat(6, 1fr); }
-}
-@media (min-width: 900px) {
-    .character-grid { grid-template-columns: repeat(8, 1fr); }
-    body { align-items: center; background-color: #000; }
-    body > * { width: 100%; max-width: 450px; background-color: var(--bg-dark); }
-}
+@media (min-width: 600px) { .character-grid { grid-template-columns: repeat(6, 1fr); } }
+@media (min-width: 900px) { .character-grid { grid-template-columns: repeat(8, 1fr); } body { align-items: center; background-color: #000; } body > * { width: 100%; max-width: 450px; background-color: var(--bg-dark); } }
