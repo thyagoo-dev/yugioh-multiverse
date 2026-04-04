@@ -1,23 +1,41 @@
 // js/utils/assets.js
 
-export const getCharacterPortrait = (char) => {
-    // Lê diretamente do objeto de sprites puxado do Back4App
-    if (char && char.sprites && char.sprites.profile) {
-        return char.sprites.profile;
-    }
-    // Fallback de segurança caso a imagem não exista no banco
-    return 'https://placehold.co/300x400/222/FFF?text=Sem+Foto';
+// Mapa para corrigir discrepâncias entre o ID do banco e o nome da pasta física
+const folderMapping = {
+    'arc-v': 'arcv', // Transforma 'arc-v' do banco na string limpa 'arcv'
+    '5ds': '5ds'
 };
 
+// Função auxiliar para pegar o nome correto da pasta
+const getFolderName = (seriesId) => folderMapping[seriesId] || seriesId;
+
+/**
+ * Retorna o caminho do Logo da série para o Menu Lateral
+ * Padrão: img/logotipos/[pasta_da_serie]/[pasta_da_serie].png
+ */
 export const getSeriesLogo = (seriesId) => {
-    // Agora o código flui sem exceções: busca pelo nome exato do ID da série
-    return `./img/logotipos/${seriesId}.png`;
+    if (!seriesId) return './img/logotipos/not-found.png';
+    const folder = getFolderName(seriesId);
+    return `./img/logotipos/${folder}/${folder}.png`; // Agora usa folder.png (ex: arcv.png)
 };
 
-// Puxa as outras variações de imagem (base, sorrindo, etc)
-export const getCharacterSprite = (char, spriteType = 'base') => {
-    if (char && char.sprites && char.sprites[spriteType]) {
-        return char.sprites[spriteType];
+/**
+ * Retorna o caminho do Título Estilizado da série para o Cabeçalho
+ * Padrão: img/logotipos/[pasta_da_serie]/[pasta_da_serie]-series-title.png
+ */
+export const getSeriesTitleImage = (seriesId) => {
+    if (!seriesId) return './img/logotipos/not-found-title.png';
+    const folder = getFolderName(seriesId);
+    return `./img/logotipos/${folder}/${folder}-series-title.png`; // Ex: arcv-series-title.png
+};
+
+/**
+ * Retorna o caminho do Retrato do Personagem (Oficial do Grid)
+ */
+export const getCharacterPortrait = (character) => {
+    if (character && character.sprites && character.sprites.profile) {
+        return character.sprites.profile; 
     }
-    return null; 
+    const seriesFolder = folderMapping[character.series] || character.series;
+    return `./img/characters/${seriesFolder}/${character.charKey}/profile.jpg`;
 };
