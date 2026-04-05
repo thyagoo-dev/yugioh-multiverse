@@ -33,14 +33,14 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* O fundo não se move quando os personagens rolam */
+    background-attachment: fixed;
 }
 
 /* ============================================================
    Topbar e Barra de Título Dinâmica
    ============================================================ */
 .top-header {
-    padding: 0 20px; /* Removido o padding para não empurrar a imagem */
+    padding: 0 20px; 
     border-bottom: 2px solid var(--accent-cyan);
     
     /* 2. O FUNDO EXCLUSIVO DA BARRA DE TÍTULO */
@@ -49,19 +49,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px; /* Altura firme para a barra */
+    height: 100px; 
     box-shadow: 0 5px 15px rgba(0,0,0,0.8);
-    overflow: hidden; /* A MÁGICA: Corta qualquer parte do PNG que tentar sair da barra! */
+    overflow: hidden; 
 }
 
 .dynamic-series-title {
     max-width: 95%; 
-    height: 100%; /* Pega toda a altura da barra */
+    height: 100%; 
     object-fit: contain; 
-    object-position: center bottom; /* Alinha o PNG na parte de baixo */
+    object-position: center bottom; 
     filter: drop-shadow(0 0 5px rgba(0, 255, 255, 0.7)); 
     transition: var(--transition);
-    transform: scale(1.3); /* Aumenta o PNG, mas o overflow: hidden do pai corta as bordas */
+    transform: scale(1.3); 
 }
 
 .controls {
@@ -242,7 +242,7 @@ body {
 }
 
 /* ============================================================
-   FAB & SERIES MENU (VISUAL IDÊNTICO AO DUEL LINKS)
+   FAB & MULTI-COLUMN SERIES MENU 
    ============================================================ */
 #fab-container {
     position: fixed;
@@ -294,45 +294,76 @@ body {
     pointer-events: auto;
 }
 
-.series-menu-list {
+/* NOVO: Container das Duas Colunas (Mangá Esquerda | Anime Direita) */
+.series-menu-container {
     position: absolute;
     bottom: 75px; 
     right: 0;
     display: flex;
-    flex-direction: column;
-    gap: 10px; 
+    flex-direction: row; 
+    gap: 15px; 
     z-index: 61;
     pointer-events: none;
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.3s, transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    max-height: 65vh; 
-    overflow-y: auto; 
-    padding-right: 5px; 
 }
 
-.series-menu-list.open {
+.series-menu-container.open {
     pointer-events: auto;
     opacity: 1;
     transform: translateY(0);
 }
 
-.series-menu-list::-webkit-scrollbar { width: 4px; }
-.series-menu-list::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+/* NOVO: As Colunas com Scroll Próprio */
+.series-menu-column {
+    display: flex;
+    flex-direction: column;
+    gap: 8px; 
+    max-height: 55vh; 
+    overflow-y: auto; 
+    padding-right: 5px; 
+    width: 165px; /* Define largura exata para caber as duas lado a lado na tela */
+}
 
+/* Scrollbars independentes e fininhas */
+.series-menu-column::-webkit-scrollbar { width: 4px; }
+.series-menu-column::-webkit-scrollbar-thumb { background: #555; border-radius: 4px; }
+.series-menu-column:hover::-webkit-scrollbar-thumb { background: var(--accent-cyan); }
+
+/* NOVO: Título das Colunas (Mangás | Animes) */
+.series-column-title {
+    color: white;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.4);
+    text-shadow: 0 0 5px var(--accent-cyan);
+    position: sticky;
+    top: 0;
+    background: rgba(2, 10, 28, 0.9); /* Mesma cor de fundo do app */
+    z-index: 5;
+    border-radius: 4px 4px 0 0;
+}
+
+/* DIMINUÍDO: O botão das séries reduziu de 220px para 155px de largura */
 .dl-series-wrapper {
-    width: 220px; 
-    height: 75px; 
+    width: 155px; 
+    height: 60px; /* Reduziu de 75px para 60px */
     background: #444; 
     padding: 2px; 
-    clip-path: polygon(15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%, 0 15px);
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
     cursor: pointer;
     transition: transform 0.2s, filter 0.2s;
     flex-shrink: 0; 
 }
 
 .dl-series-wrapper:hover {
-    transform: translateX(-5px);
+    transform: translateX(-3px);
 }
 
 .dl-series-wrapper.active {
@@ -344,7 +375,7 @@ body {
     width: 100%;
     height: 100%;
     background: linear-gradient(90deg, #020a1c 0%, #0b1f47 100%);
-    clip-path: polygon(14px 0, 100% 0, 100% calc(100% - 14px), calc(100% - 14px) 100%, 0 100%, 0 14px);
+    clip-path: polygon(9px 0, 100% 0, 100% calc(100% - 9px), calc(100% - 9px) 100%, 0 100%, 0 9px);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -356,7 +387,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 5px 10px;
+    padding: 3px 6px; /* Ajuste para caixas menores */
 }
 
 .dl-series-logo {
@@ -366,8 +397,9 @@ body {
     filter: drop-shadow(0 2px 2px black);
 }
 
+/* DIMINUÍDO: O container da foto diminuiu para 55px */
 .dl-char-container {
-    width: 80px; 
+    width: 55px; 
     height: 100%;
     border-left: 2px solid #444; 
     position: relative;
