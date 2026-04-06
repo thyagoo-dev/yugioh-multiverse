@@ -11,7 +11,7 @@ const icons = {
     profile: `<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>`
 };
 
-// Mapa inteligente de protagonistas (Atualizado com todos os spin-offs)
+// Mapa inteligente de protagonistas (Corrigido com as charKeys EXATAS do banco)
 const protagonistsMap = {
     toeianime: { charKey: 'yugi-muto', nameSearch: 'yugi' },
     dm: { charKey: 'yami-yugi', nameSearch: 'yami' },
@@ -24,9 +24,10 @@ const protagonistsMap = {
     gorush: { charKey: 'yudias-velgear', nameSearch: 'yudias' },
     dsod: { charKey: 'seto-kaiba-dsod', nameSearch: 'kaiba' },
     ocgstructures: { charKey: 'shoma-yusa', nameSearch: 'shoma' },
-    ocgstories: { charKey: 'raye', nameSearch: 'raye' },
-    yugioh: { charKey: 'yugi-muto', nameSearch: 'yugi' },
-    r: { charKey: 'yugi-muto', nameSearch: 'yugi' },
+    ocgstories: { charKey: 'sky-striker-ace-raye', nameSearch: 'raye' }, 
+    yugioh: { charKey: 'yami-yugi', nameSearch: 'yami' }, 
+    r: { charKey: 'yami-yugi', nameSearch: 'yami' }, 
+    'gx-manga': { charKey: 'jaden-yuki', nameSearch: 'jaden' },
     '5ds-manga': { charKey: 'yusei-fudo', nameSearch: 'yusei' },
     'zexal-manga': { charKey: 'yuma-tsukumo', nameSearch: 'yuma' },
     'arcv-manga': { charKey: 'yuya-sakaki', nameSearch: 'yuya' },
@@ -35,7 +36,7 @@ const protagonistsMap = {
     saikyoduelistyuya: { charKey: 'yuya-sakaki', nameSearch: 'yuya' },
     rushduellp: { charKey: 'yuga-ohdo', nameSearch: 'yuga' },
     sevensmyroadacademy: { charKey: 'yuga-ohdo', nameSearch: 'yuga' },
-    sevenslukeexplosionsupremacylegend: { charKey: 'lucidien-kallister', nameSearch: 'luke' } // Luke como protagonista desse mangá
+    sevenslukeexplosionsupremacylegend: { charKey: 'lucidien-kallister', nameSearch: 'luke' }
 };
 
 let isMenuOpen = false;
@@ -86,7 +87,7 @@ export const renderNav = () => {
         const menuContainer = document.createElement('div');
         menuContainer.className = `series-menu-container ${isMenuOpen ? 'open' : ''}`;
 
-        // Atualizado com todos os IDs únicos que vão pra coluna Mangás
+        // IDs dos mangás
         const mangaIds = [
             'ocgstructures', 'ocgstories', 'yugioh', 'r', 'dteamzexal', 
             'rushduellp', 'saikyoduelistyuya', 'sevenslukeexplosionsupremacylegend', 'sevensmyroadacademy'
