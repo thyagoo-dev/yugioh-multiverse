@@ -1,0 +1,12 @@
+/* css/variables.css */
+:root {
+    --bg-dark: #020a1c;
+    --bg-light-blue: #0b1f47;
+    --accent-cyan: #00ffff;
+    --accent-blue: #0088ff;
+    --border-metal: #a0a5b0;
+    --text-main: #ffffff;
+    --text-muted: #b0b8c8;
+    --nav-bg: #06122d;
+    --transition: 0.3s ease;
+}

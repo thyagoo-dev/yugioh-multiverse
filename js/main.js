@@ -3,15 +3,10 @@ import { renderNav } from './components/Nav.js';
 import { renderGrid } from './components/Grid.js';
 import { initSearch } from './components/Search.js';
 import { initModal } from './components/Modal.js';
+import { renderHistoryView } from './components/History.js';
 import { getSeriesInfo, fetchCharactersFromDB, fetchSeriesFromDB, getState } from './state/store.js';
-import { getSeriesTitleImage } from './utils/assets.js'; // Importamos a nova função
-
-// Inicialização do Parse (Back4App)
-Parse.initialize(
-    'S45oz7nDhneEmeLmO084hdRi0CCW1ZtWWFlUgTeH',
-    'zJhueqxl3fOyfQWVxtt1nyBPsiCHgvqwlW2tPaQg'
-);
-Parse.serverURL = 'https://parseapi.back4app.com/';
+import { getSeriesTitleImage } from './utils/assets.js';
+import { initAPI } from './services/api.js';
 
 // Função global para atualizar a UI quando o estado muda (Roteador)
 export const updateAppView = () => {
@@ -22,29 +17,40 @@ export const updateAppView = () => {
     const headerEl = document.querySelector('.top-header');
     const controlsEl = document.querySelector('.controls');
     const gridEl = document.getElementById('character-grid');
+    const historyEl = document.getElementById('history-view');
     
-    // Identifica se estamos na aba de personagens
     const isCharactersTab = currentTab === 'characters';
+    const isHistoryTab = currentTab === 'history';
 
-    // NOVA LÓGICA DO CABEÇALHO: Injeta imagem em vez de texto
+    // LÓGICA DO CABEÇALHO (Muda dependendo da aba)
     if (headerEl) {
         if (isCharactersTab) {
-            headerEl.style.display = 'flex'; // Usamos flex para centralizar a imagem
+            headerEl.style.display = 'flex'; 
             const titleImageUrl = getSeriesTitleImage(currentSeries);
-            // Injeta a tag IMG com classe para controle de tamanho
             headerEl.innerHTML = `<img src="${titleImageUrl}" alt="${seriesInfo.name}" class="dynamic-series-title">`;
+        } else if (isHistoryTab) {
+            headerEl.style.display = 'flex'; 
+            headerEl.innerHTML = `<h1 style="color: var(--accent-cyan); text-shadow: 0 0 5px var(--accent-cyan); text-transform: uppercase; letter-spacing: 2px;">History</h1>`;
         } else {
             headerEl.style.display = 'none';
         }
     }
     
-    // Mostra ou esconde o resto das áreas dependendo da aba
+    // Mostra ou esconde as áreas dependendo da aba
     if (controlsEl) controlsEl.style.display = isCharactersTab ? 'block' : 'none';
     if (gridEl) gridEl.style.display = isCharactersTab ? 'grid' : 'none';
 
+    // Controle da aba History
+    if (historyEl) {
+        // A MÁGICA COMEÇA AQUI: Usamos 'flex' no lugar de 'block'
+        historyEl.style.display = isHistoryTab ? 'flex' : 'none';
+        if (isHistoryTab) {
+            renderHistoryView(); 
+        }
+    }
+
     renderNav();
     
-    // Só renderiza o peso dos personagens se estiver na aba correta
     if (isCharactersTab) {
         renderGrid();
     }
@@ -52,10 +58,10 @@ export const updateAppView = () => {
 
 // Inicialização da aplicação
 document.addEventListener('DOMContentLoaded', async () => {
+    initAPI(); 
     initSearch();
     initModal();
     
-    // Aguarda carregar séries e personagens antes de exibir a tela
     await fetchSeriesFromDB();
     await fetchCharactersFromDB();
     

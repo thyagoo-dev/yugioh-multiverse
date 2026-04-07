@@ -4,7 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yu-Gi-Oh! Character Dex</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="./css/variables.css">
+    <link rel="stylesheet" href="./css/global.css">
+    <link rel="stylesheet" href="./css/components/header.css">
+    <link rel="stylesheet" href="./css/components/grid.css">
+    <link rel="stylesheet" href="./css/components/nav.css">
+    <link rel="stylesheet" href="./css/components/modal.css">
+    <link rel="stylesheet" href="./css/components/history.css">
 </head>
 <body>
 
@@ -16,11 +23,11 @@
         <input type="text" id="search-input" placeholder="Buscar personagem...">
     </div>
 
-    <main class="character-grid" id="character-grid">
-        </main>
+    <main class="character-grid" id="character-grid"></main>
 
-    <nav class="bottom-nav" id="series-nav">
-        </nav>
+    <section id="history-view"></section>
+
+    <nav class="bottom-nav" id="series-nav"></nav>
 
     <div id="character-modal" class="modal hidden">
         <div class="modal-overlay"></div>

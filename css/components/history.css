@@ -1,0 +1,111 @@
+/* css/components/history.css */
+#history-view {
+    flex: 1; 
+    min-height: 0; 
+    flex-direction: column;
+    overflow: hidden; 
+    padding: 20px;
+    display: none; 
+    width: 100%;
+    background-color: #061626;
+    background-image: url('../../img/logotipos/history-background.png');
+    background-size: 80%; 
+    background-repeat: repeat; 
+    background-position: top left; 
+    background-attachment: fixed; 
+}
+
+.history-header-text { text-align: center; margin-bottom: 30px; flex-shrink: 0; }
+.history-header-text h2 { color: var(--accent-cyan); font-size: 1.8rem; text-shadow: 0 0 8px rgba(0, 255, 255, 0.4); text-transform: uppercase; letter-spacing: 2px; }
+.history-header-text p { color: var(--text-muted); font-size: 0.9rem; margin-top: 5px; }
+
+.history-cards-container { display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto; width: 100%; overflow-y: auto; padding-bottom: 20px; }
+
+/* CARTÃO PADRÃO - ALTURA FIXA */
+.history-card { 
+    height: 90px; 
+    background: linear-gradient(135deg, rgba(11, 31, 71, 0.8) 0%, rgba(2, 10, 28, 0.9) 100%); 
+    border: 1px solid var(--border-metal); 
+    border-radius: 12px; 
+    padding: 0 20px; 
+    display: flex; 
+    align-items: center; 
+    gap: 15px;
+    cursor: pointer; 
+    transition: all var(--transition); 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); 
+    position: relative; 
+    overflow: hidden; 
+}
+
+.card-icon { color: var(--accent-cyan); flex-shrink: 0; display: flex; align-items: center; justify-content: center; z-index: 10; }
+.card-icon svg { width: 30px; height: 30px; filter: drop-shadow(0 0 5px var(--accent-cyan)); }
+.card-text { z-index: 10; }
+.card-text h3 { color: white; font-size: 1.1rem; margin: 0; }
+.card-text p { color: var(--text-muted); font-size: 0.75rem; margin: 0; }
+
+/* MÁGICA DO ALINHAMENTO DO ÍCONE E TEXTO */
+.icon-and-text {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 10;
+    position: relative;
+}
+
+/* CARTÃO ESPECIAL (MANGÁS, ANIMES, FILMES) */
+#btn-mangas, #btn-animes, #btn-filmes {
+    justify-content: flex-start;
+}
+
+/* Container de Artes (overlay no fundo, na direita) - Lógica do mask-image */
+.manga-arts-overlay, .animes-arts-overlay, .filmes-arts-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0; 
+    width: 220px; 
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    z-index: 1;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 45%);
+    mask-image: linear-gradient(to right, transparent 0%, black 45%);
+}
+
+.manga-arts-overlay img, .animes-arts-overlay img, .filmes-arts-overlay img {
+    height: 110%; 
+    width: 85px; 
+    object-fit: cover;
+    object-position: center 10%; 
+    margin-left: -25px; 
+    clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+/* CORREÇÃO AQUI: Largura de exatos 65px para compensar a ausência do clip-path e igualar visualmente com as outras */
+.manga-arts-overlay img:first-child, .animes-arts-overlay img:first-child, .filmes-arts-overlay img:first-child {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    width: 65px; 
+}
+
+/* Efeito de Zoom no Hover */
+#btn-mangas:hover .manga-arts-overlay img, 
+#btn-animes:hover .animes-arts-overlay img, 
+#btn-filmes:hover .filmes-arts-overlay img {
+    opacity: 1;
+    transform: scale(1.05); 
+}
+
+/* LISTAS INTERNAS */
+.history-sub-header { display: flex; align-items: center; margin-bottom: 15px; padding-bottom: 15px; border-bottom: 2px solid rgba(0, 255, 255, 0.4); background: rgba(6, 22, 38, 0.95); padding-top: 10px; flex-shrink: 0; }
+.btn-back { background: rgba(0, 255, 255, 0.1); color: var(--accent-cyan); border: 1px solid var(--accent-cyan); padding: 8px 15px; border-radius: 20px; cursor: pointer; font-weight: bold; margin: 0 15px; }
+.history-list-wrapper { flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 15px; padding-bottom: 40px; }
+.history-list-item { display: flex; background: rgba(11, 31, 71, 0.7); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; padding: 10px; align-items: center; }
+.history-item-logo-box { width: 100px; height: 60px; background: #020a1c; border-radius: 6px; display: flex; align-items: center; justify-content: center; margin-right: 15px; flex-shrink: 0; }
+.history-item-logo-box img { max-width: 90%; max-height: 90%; object-fit: contain; }
+.history-item-info { flex: 1; }
+.history-item-info h4 { color: var(--text-main); margin: 0 0 5px 0; font-size: 1.1rem; }
+.history-item-info p { color: var(--text-muted); margin: 0; font-size: 0.85rem; }
+.history-item-info p strong { color: var(--accent-cyan); }

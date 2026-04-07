@@ -3,15 +3,14 @@ import { getState, setSeries, getSeriesList, setTab } from '../state/store.js';
 import { getSeriesLogo, getCharacterPortrait } from '../utils/assets.js'; 
 import { updateAppView } from '../main.js';
 
-// SVGs Profissionais
+// SVGs Profissionais (Atualizado com ícone de History)
 const icons = {
     home: `<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 3l-10 9h3v8h5v-6h4v6h5v-8h3z"/></svg>`,
-    series: `<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M4 6h16v12H4zm2 2v8h12V8zM2 4h20v16H2z"/></svg>`,
+    history: `<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>`,
     characters: `<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>`,
     profile: `<svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/></svg>`
 };
 
-// Mapa inteligente de protagonistas (Corrigido com as charKeys EXATAS do banco)
 const protagonistsMap = {
     toeianime: { charKey: 'yugi-muto', nameSearch: 'yugi' },
     dm: { charKey: 'yami-yugi', nameSearch: 'yami' },
@@ -45,7 +44,6 @@ export const renderNav = () => {
     const navElement = document.getElementById('series-nav');
     const { currentTab, currentSeries, allCharacters } = getState();
     
-    // Pegamos a lista e ordenamos pelo campo 'order'
     const seriesList = [...getSeriesList()].sort((a, b) => (a.order || 0) - (b.order || 0));
     
     navElement.innerHTML = '';
@@ -53,7 +51,7 @@ export const renderNav = () => {
     
     const tabs = [
         { id: 'home', name: 'Home', icon: icons.home },
-        { id: 'series', name: 'Series', icon: icons.series },
+        { id: 'history', name: 'History', icon: icons.history },
         { id: 'characters', name: 'Characters', icon: icons.characters },
         { id: 'profile', name: 'Profile', icon: icons.profile }
     ];
@@ -87,7 +85,6 @@ export const renderNav = () => {
         const menuContainer = document.createElement('div');
         menuContainer.className = `series-menu-container ${isMenuOpen ? 'open' : ''}`;
 
-        // IDs dos mangás
         const mangaIds = [
             'ocgstructures', 'ocgstories', 'yugioh', 'r', 'dteamzexal', 
             'rushduellp', 'saikyoduelistyuya', 'sevenslukeexplosionsupremacylegend', 'sevensmyroadacademy'
@@ -105,13 +102,16 @@ export const renderNav = () => {
         });
 
         const buildColumn = (title, items) => {
-            const col = document.createElement('div');
-            col.className = 'series-menu-column';
+            const wrapper = document.createElement('div');
+            wrapper.className = 'series-column-wrapper';
             
             const header = document.createElement('div');
             header.className = 'series-column-title';
             header.innerText = title;
-            col.appendChild(header);
+            wrapper.appendChild(header);
+
+            const col = document.createElement('div');
+            col.className = 'series-menu-column';
 
             items.forEach(series => {
                 const seriesWrapper = document.createElement('div');
@@ -157,7 +157,9 @@ export const renderNav = () => {
                 };
                 col.appendChild(seriesWrapper);
             });
-            return col;
+            
+            wrapper.appendChild(col);
+            return wrapper;
         };
 
         menuContainer.appendChild(buildColumn('Mangás', mangas));

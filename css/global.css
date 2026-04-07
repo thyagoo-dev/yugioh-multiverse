@@ -1,0 +1,36 @@
+/* css/global.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    height: 100dvh; 
+    overflow: hidden; 
+    
+    /* O FUNDO PADRÃO DO SITE INTEIRO */
+    background-image: url('../img/logotipos/small-background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Media Queries Globais (Tablets/Desktops) */
+@media (min-width: 900px) { 
+    body { 
+        align-items: center; 
+        background-color: #000; 
+    } 
+    body > * { 
+        width: 100%; 
+        max-width: 450px; 
+        background-color: var(--bg-dark); 
+    } 
+}

@@ -1,0 +1,60 @@
+/* css/components/grid.css */
+.character-grid {
+    flex: 1;
+    overflow-y: auto;
+    padding: 15px 8px 30px 8px; 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 8px; 
+    align-content: start;
+    align-items: start; 
+}
+
+.char-icon-wrapper {
+    position: relative; 
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/4; 
+    transition: transform 0.2s ease;
+    z-index: 1; 
+}
+
+.char-icon-wrapper:hover,
+.char-icon-wrapper.selected {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+.frame-container { position: relative; width: 100%; height: 100%; }
+.frame-image, .frame-image-selected, .char-portrait { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
+
+.char-portrait {
+    z-index: 1;
+    object-fit: cover; 
+    object-position: top; 
+    clip-path: polygon(16% 3%, 97% 3%, 97% 45%, 88% 50%, 88% 70%, 97% 75%, 97% 84%, 84% 97%, 3% 97%, 4% 16%);
+}
+
+.frame-image, .frame-image-selected { z-index: 2; transition: var(--transition); }
+.frame-image-selected { display: none; }
+.char-icon-wrapper.selected .frame-image, .char-icon-wrapper:hover .frame-image { display: none; }
+.char-icon-wrapper.selected .frame-image-selected, .char-icon-wrapper:hover .frame-image-selected { display: block; }
+
+.sync-icon {
+    position: absolute; bottom: 5px; left: 5px; z-index: 3; 
+    width: 22px; height: 22px; background: rgba(0,0,0,0.7);
+    border-radius: 50%; border: 1px solid white; display: flex;
+    align-items: center; justify-content: center; font-size: 14px;
+    font-weight: bold; font-style: italic; color: white;
+    box-shadow: 0 0 5px rgba(255,255,255,0.5);
+}
+
+.alt-style-icon {
+    position: absolute; bottom: -5px; left: -5px; width: 40px; height: 40px; 
+    z-index: 10; pointer-events: none; filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8)); 
+}
+
+/* Responsividade do Grid */
+@media (min-width: 600px) { .character-grid { grid-template-columns: repeat(6, 1fr); } }
+@media (min-width: 900px) { .character-grid { grid-template-columns: repeat(8, 1fr); } }

@@ -1,4 +1,5 @@
 // js/state/store.js
+import { getSeriesFromDB, getCharactersFromDB } from '../services/api.js';
 
 const state = {
     allCharacters: [], 
@@ -7,36 +8,38 @@ const state = {
     searchTerm: "",
     currentModalIndex: 0,
     isLoading: true,
-    currentTab: "characters" // NOVA PROPRIEDADE: Controla a aba principal atual
+    currentTab: "characters" 
 };
 
 export const fetchSeriesFromDB = async () => {
     try {
-        const SeriesClass = Parse.Object.extend("Series");
-        const query = new Parse.Query(SeriesClass);
-        query.ascending("order"); 
-        const results = await query.find();
+        const results = await getSeriesFromDB();
         state.seriesList = results.map(parseObj => ({
             id: parseObj.get("seriesId"),
             name: parseObj.get("name"),
             order: parseObj.get("order")
         }));
-    } catch (error) { console.error("Erro série:", error); }
+    } catch (error) { 
+        console.error("Erro ao carregar séries:", error); 
+    }
 };
 
 export const fetchCharactersFromDB = async () => {
     try {
-        const CharacterClass = Parse.Object.extend("Character");
-        const query = new Parse.Query(CharacterClass);
-        query.limit(1000); 
-        const results = await query.find();
+        const results = await getCharactersFromDB();
         state.allCharacters = results.map(parseObj => ({
-            id: parseObj.get("charId"), name: parseObj.get("name"), series: parseObj.get("series"),
-            charKey: parseObj.get("charKey"), hasSync: parseObj.get("hasSync"), mainCard: parseObj.get("mainCard"),
-            desc: parseObj.get("desc"), sprites: parseObj.get("sprites")
+            id: parseObj.get("charId"), 
+            name: parseObj.get("name"), 
+            series: parseObj.get("series"),
+            charKey: parseObj.get("charKey"), 
+            hasSync: parseObj.get("hasSync"), 
+            mainCard: parseObj.get("mainCard"),
+            desc: parseObj.get("desc"), 
+            sprites: parseObj.get("sprites")
         }));
         state.isLoading = false;
     } catch (error) {
+        console.error("Erro ao carregar personagens:", error);
         state.isLoading = false;
     }
 };
@@ -49,5 +52,4 @@ export const getFilteredCharacters = () => state.allCharacters.filter(char => ch
 export const setSeries = (seriesId) => { state.currentSeries = seriesId; state.searchTerm = ''; state.currentModalIndex = 0; };
 export const setSearchTerm = (term) => { state.searchTerm = term.toLowerCase(); state.currentModalIndex = 0; };
 export const setModalIndex = (index) => { state.currentModalIndex = index; };
-// NOVO: Função para trocar de aba
 export const setTab = (tabId) => { state.currentTab = tabId; };
